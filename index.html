@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milestone Sportz & Events LLP | Crafting Unforgettable Experiences</title>
+    
+    <!-- Google Fonts: Poppins for headings, Lato for body text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 
+        ============================================
+        CSS STYLES FOR MILESTONE SPORTZ & EVENTS LLP
+        ============================================
+        */
+
+        /* === 1. CSS Variables & Global Styles === */
+        
+        :root {
+            /* EDIT YOUR COLOR PALETTE HERE */
+            --primary-color: #0A2342;  /* Deep, authoritative blue */
+            --secondary-color: #8D99AE; /* Cool, supporting grey */
+            --accent-color: #D4AF37;   /* Elegant gold/ochre */
+            --light-color: #FFFFFF;    /* Clean white */
+            --dark-color: #2B2D42;     /* Dark charcoal for text and footers */
+            --bg-color: #F9FAFB;       /* Soft off-white for sections */
+            --shadow-color: rgba(0, 0, 0, 0.08); /* Soft shadow */
+            --success-color: #10B981;
+            --error-color: #EF4444;
+            
+            /* EDIT YOUR FONT FAMILIES HERE */
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Lato', sans-serif;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 62.5%; /* Makes 1rem = 10px for easier sizing */
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 1.6rem; /* Default font size: 16px */
+            line-height: 1.7;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        section {
+            padding: 8rem 0;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            color: #555;
+            font-size: 1.8rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* === 2. Header & Navigation === */
+        
+        .site-header {
+            background-color: var(--light-color);
+            padding: 2rem 0;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .site-header.scrolled {
+            padding: 1rem 0;
+            box-shadow: 0 4px 20px var(--shadow-color);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .main-nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 3.5rem;
+        }
+
+        .main-nav a {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 2.4rem;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+
+        /* === 3. Hero Section === */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a5c 100%);
+            color: var(--light-color);
+            text-align: center;
+            padding: 12rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx=".66" cy=".68" r=".7"><stop offset=".4" stop-color="%23183152"/><stop offset=".8" stop-color="%230A2342"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>');
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 5.5rem;
+            color: var(--light-color);
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out 0.3s forwards;
+        }
+        
+        .hero p {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out 0.6s forwards;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--light-color);
+            padding: 1.5rem 3.5rem;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.6rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideUp 1s ease-out 0.9s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            background-color: #c5a230;
+            color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* === 4. About Section === */
+        #about {
+            background-color: var(--bg-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .about-text h3 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .about-text p {
+            font-size: 1.7rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transform: rotate(2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .about-image:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 4rem;
+            margin-top: 6rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--light-color);
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .stat-label {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .services-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 6rem;
+        }
+
+        .service-card {
+            background: var(--light-color);
+            padding: 3rem 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px var(--shadow-color);
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            display: block;
+        }
+
+        .service-card h4 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: #666;
+            font-size: 1.5rem;
+        }
+
+        /* === 5. Contact Section === */
+        #contact {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a5c 100%);
+            color: var(--light-color);
+        }
+
+        #contact h2 {
+            color: var(--light-color);
+        }
+
+        #contact .section-subtitle {
+            color: var(--secondary-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            color: var(--light-color);
+            margin-bottom: 3rem;
+            font-size: 2.6rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .contact-icon {
+            font-size: 2.4rem;
+            margin-right: 2rem;
+            color: var(--accent-color);
+        }
+
+        .contact-form {
+            background: var(--light-color);
+            padding: 4rem;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1.5rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 1.6rem;
+            font-family: var(--font-body);
+            transition: all 0.3s ease;
+            background: #fafafa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: var(--light-color);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--accent-color);
+            color: var(--light-color);
+            padding: 1.8rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.6rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--font-heading);
+        }
+
+        .submit-btn:hover {
+            background: #c5a230;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+        }
+
+        .submit-btn:disabled {
+            background: var(--secondary-color);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            text-align: center;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #d1fae5;
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+        }
+
+        .form-message.error {
+            background: #fee2e2;
+            color: var(--error-color);
+            border: 1px solid var(--error-color);
+        }
+
+        /* === 6. Footer === */
+        
+        .site-footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .site-footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .footer-logo {
+            font-family: var(--font-heading);
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--light-color);
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 1.5rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            color: var(--secondary-color);
+            font-size: 1.4rem;
+            margin-top: 1rem;
+        }
+
+        /* === 7. Loading Animation === */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: var(--light-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* === 8. Responsive Media Queries === */
+
+        /* For tablets */
+        @media (max-width: 768px) {
+            h1 { font-size: 4.5rem; }
+            h2 { font-size: 3.2rem; }
+
+            .site-header .container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .main-nav {
+                display: none;
+                width: 100%;
+                margin-top: 2rem;
+            }
+
+            .main-nav.active {
+                display: block;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form {
+                padding: 3rem 2rem;
+            }
+        }
+
+        /* For mobile phones */
+        @media (max-width: 480px) {
+            html {
+                font-size: 58%;
+            }
+
+            section { padding: 6rem 0; }
+            
+            .hero { padding: 8rem 0; }
+            .hero h1 { font-size: 3.8rem; }
+            .hero p { font-size: 1.8rem; }
+            
+            .footer-links {
+                display: flex;
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+
+            .services-preview {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="header">
+    <div class="container">
+        <a href="#" class="logo">
+            <img src="logo.png" alt="Milestone Logo" style="height: 80px; vertical-align: middle;">
+            <span style="margin-left: 20px;">Milestone Sportz & Events</span>
+        </a>
+
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+
+        <nav class="main-nav" id="mainNav">
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hero Section with Slider</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Background slider wrapper */
+    .slider {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    /* Individual slide */
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    /* Show current slide */
+    .slide.active {
+      opacity: 1;
+    }
+
+    /* Overlay for darkening background */
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+      z-index: 1;
+    }
+
+    /* Hero content (text and button) */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background-color: #ff5722;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .cta-button:hover {
+      background-color: #e64a19;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero" id="home">
+    <div class="slider">
+      <!-- Cricket -->
+      <div class="slide active" style="background-image: url('https://www.foretitansevents.com/home/images/Teams3.jpeg');"></div>
+      <!-- Football -->
+      <div class="slide" style="background-image: url('https://www.foretitansevents.com/home/images/g4-min.jpg');"></div>
+      <!-- Hockey -->
+      <div class="slide" style="background-image: url('https://www.foretitansevents.com/home/images/gal/4.jpeg');"></div>
+    </div>
+
+    <div class="overlay"></div>
+
+   <div class="hero-content">
+  <h1 style="color: #ffffff; font-weight: bold;">
+    Defining Sports, Delivering Excellence.
+  </h1>
+  <p style="color: #f96205f4;">
+    Milestone Sportz & Events is a premier management company dedicated to creating, managing, and executing world-class sporting events and corporate experiences.
+  </p>
+  <a href="#contact" class="cta-button">Join Us Today</a>
+</div>
+
+  </section>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const slides = document.querySelectorAll(".slide");
+      let current = 0;
+
+      setInterval(() => {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }, 4000); // Slide interval (4 seconds)
+    });
+  </script>
+
+</body>
+</html>
+
+        <!-- ================= ABOUT SECTION ================= -->
+        <section id="about">
+            <div class="container">
+                <h2>Who We Are</h2>
+                <p class="section-subtitle">
+                    Founded on a passion for sport and a commitment to perfection, Milestone brings together decades of industry experience.
+                </p>
+
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Story & Vision</h3>
+                        <p>Since our founding, Milestone Sportz & Events has been at the forefront of creating extraordinary sporting experiences that captivate audiences and inspire participants. We believe every event is a landmark opportunity to inspire, engage, and create lasting memories.</p>
+                        <p>Our mission is to be the trusted partner that transforms your vision into a celebrated success. From intimate corporate gatherings to large-scale international sporting events, we bring the same level of dedication, creativity, and attention to detail to every project.</p>
+                        <p>With a team of seasoned professionals who understand the intricacies of event management, we've successfully delivered over 500 events across various sports and entertainment categories, establishing ourselves as industry leaders.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://imageio.forbes.com/specials-images/imageserve/66bf43df727b75128d6f97b1/Huge-multi-sports-collage-taekwondo--tennis--soccer--basketball--etc/960x0.jpg?format=jpg&width=960" alt="Event management team in action">
+                    </div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">26+</span>
+                        <span class="stat-label">Events Delivered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="15">7+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1000000">1000+</span>
+                        <span class="stat-label">Participants Engaged</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="25">20+</span>
+                        <span class="stat-label">Sports Categories</span>
+                    </div>
+                </div>
+
+                <div class="services-preview">
+                    <div class="service-card">
+                        <span class="service-icon">🏆</span>
+                        <h4>Sports Event Management</h4>
+                        <p>Complete tournament organization, from amateur leagues to professional championships, ensuring seamless execution and memorable experiences.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">🎯</span>
+                        <h4>Corporate Events</h4>
+                        <p>Elevate your brand with expertly crafted corporate sporting events, team building activities, and executive tournaments.</p>
+                    </div>
+                    <div class="service-card">
+                        <span class="service-icon">📺</span>
+                        <h4>Media Production</h4>
+                        <p>Full-service media production including live streaming, broadcast management, and content creation for maximum event impact.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CONTACT SECTION ================= -->
+        <section id="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p class="section-subtitle">
+                    Ready to create your next milestone event? Let's discuss how we can bring your vision to life.
+                </p>
+
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <h4>Head Office</h4>
+                                <p>St. Sant Nagar, Burari<br>Delhi, India 110084</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <h4>Call Us</h4>
+                                <p>+91 85060 39131<br>+91 98765 43210</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <h4>Email Us</h4>
+                                <p>milestone_sports@gmail.com<br>events_milestonesportz@gmail.com</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <span class="contact-icon">🕒</span>
+                            <div>
+                                <h4>Business Hours</h4>
+                                <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-message" id="formMessage"></div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventType">Event Type *</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="">Select an event type</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="sports-tournament">Sports Tournament</option>
+                                <option value="conference">Conference/Seminar</option>
+                                <option value="team-building">Team Building</option>
+                                <option value="product-launch">Product Launch</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="eventDate">Preferred Event Date</label>
+                                <input type="date" id="eventDate" name="eventDate">
+                            </div>
+                            <div class="form-group">
+                                <label for="budget">Estimated Budget</label>
+                                <select id="budget" name="budget">
+                                    <option value="">Select budget range</option>
+                                    <option value="under-100k">Under ₹1,00,000</option>
+                                    <option value="100k-500k">₹1,00,000 - ₹5,00,000</option>
+                                    <option value="500k-1m">₹5,00,000 - ₹10,00,000</option>
+                                    <option value="1m-plus">₹10,00,000+</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your event *</label>
+                            <textarea id="message" name="message" placeholder="Please describe your event requirements, expected number of participants, venue preferences, and any special requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            <span class="btn-text">Send Message</span>
+                            <span class="loading" style="display: none;"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <a href="#" class="footer-logo">Milestone Sportz & Event LLP</a>
+            <div class="footer-links">
+                <a href="#about">All copyright &copy; 2024 Milestone Sportz & Events</a>
