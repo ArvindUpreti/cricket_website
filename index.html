@@ -1,1055 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milestone Sportz & Events LLP | Crafting Unforgettable Experiences</title>
-    
-    <!-- Google Fonts: Poppins for headings, Lato for body text -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* 
-        ============================================
-        CSS STYLES FOR MILESTONE SPORTZ & EVENTS LLP
-        ============================================
-        */
-
-        /* === 1. CSS Variables & Global Styles === */
-        
-        :root {
-            --primary-color: #0A2342;
-            --secondary-color: #8D99AE;
-            --accent-color: #D4AF37;
-            --accent-color-dark: #c5a230;
-            --light-color: #FFFFFF;
-            --dark-color: #2B2D42;
-            --bg-color: #F9FAFB;
-            --shadow-color: rgba(0, 0, 0, 0.08);
-            --success-color: #10B981;
-            --error-color: #EF4444;
-            --font-heading: 'Poppins', sans-serif;
-            --font-body: 'Lato', sans-serif;
-        }
-
-        *, *::before, *::after {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            font-size: 62.5%; /* Makes 1rem = 10px */
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            font-size: 1.6rem;
-            line-height: 1.7;
-            color: var(--dark-color);
-            background-color: var(--light-color);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        section {
-            padding: 8rem 0;
-            overflow: hidden; /* Prevents horizontal scroll from animations */
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--font-heading);
-            color: var(--primary-color);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-        
-        h2 {
-            font-size: 4rem;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem auto;
-            color: #555;
-            font-size: 1.8rem;
-        }
-
-        a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        /* === 2. Header & Navigation === */
-        
-        .site-header {
-            background-color: var(--light-color);
-            padding: 1.5rem 0;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            width: 100%;
-            transition: all 0.3s ease;
-        }
-
-        .site-header.scrolled {
-            padding: 1rem 0;
-            box-shadow: 0 4px 20px var(--shadow-color);
-        }
-
-        .site-header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            font-family: var(--font-heading);
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            transition: transform 0.3s ease;
-        }
-        .logo img {
-            height: 60px; /* Adjusted height */
-            transition: height 0.3s ease;
-        }
-        .site-header.scrolled .logo img {
-            height: 50px;
-        }
-        .logo:hover {
-            transform: scale(1.02);
-            color: var(--primary-color);
-        }
-        
-        .main-nav ul {
-            list-style-type: none;
-            display: flex;
-            gap: 3.5rem;
-        }
-
-        .main-nav a {
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .main-nav a:hover, .main-nav a.active {
-            color: var(--accent-color);
-            border-bottom-color: var(--accent-color);
-        }
-
-        .mobile-menu-toggle {
-            display: none; /* Hidden on desktop */
-            background: none;
-            border: none;
-            font-size: 3rem;
-            color: var(--primary-color);
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* === 3. Hero Section (Slider) === */
-        .hero {
-            height: 90vh;
-            min-height: 600px;
-            position: relative;
-            color: var(--light-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .slider {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1.5s ease-in-out;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .overlay {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 35, 66, 0.6); /* Using primary color for overlay */
-            z-index: 1;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-
-        .hero h1 {
-            font-size: 5.5rem;
-            color: var(--light-color);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 2rem;
-            color: #f0f0f0;
-            max-width: 700px;
-            margin: 0 auto 3rem auto;
-            line-height: 1.6;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--dark-color);
-            padding: 1.5rem 3.5rem;
-            border-radius: 50px;
-            font-family: var(--font-heading);
-            font-weight: 600;
-            font-size: 1.7rem;
-            transition: all 0.3s ease;
-        }
-        
-        .cta-button:hover {
-            background-color: var(--accent-color-dark);
-            color: var(--light-color);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
-        }
-
-        /* === 4. About Section === */
-        #about {
-            background-color: var(--bg-color);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 6rem;
-            align-items: center;
-        }
-
-        .about-text h3 {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
-
-        .about-text p {
-            font-size: 1.7rem;
-            margin-bottom: 2rem;
-            color: #666;
-        }
-
-        .about-image {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            transform: rotate(2deg);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        }
-
-        .about-image:hover {
-            transform: rotate(0deg) scale(1.03);
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-top: 6rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 3rem 2rem;
-            background: var(--light-color);
-            border-radius: 12px;
-            box-shadow: 0 8px 30px var(--shadow-color);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--accent-color);
-            display: block;
-            margin-bottom: 1rem;
-        }
-
-        .stat-label {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        .services-preview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 6rem;
-        }
-
-        .service-card {
-            background: var(--light-color);
-            padding: 3rem 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px var(--shadow-color);
-            text-align: center;
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--accent-color);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-        }
-
-        .service-icon {
-            font-size: 4rem;
-            margin-bottom: 2rem;
-            display: block;
-        }
-
-        .service-card h4 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-
-        .service-card p {
-            color: #666;
-            font-size: 1.5rem;
-        }
-
-        /* === 5. Contact Section === */
-        #contact {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1a3a5c 100%);
-            color: var(--light-color);
-        }
-
-        #contact h2 {
-            color: var(--light-color);
-        }
-
-        #contact .section-subtitle {
-            color: var(--secondary-color);
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 6rem;
-            align-items: start;
-        }
-
-        .contact-info h3 {
-            color: var(--light-color);
-            margin-bottom: 3rem;
-            font-size: 2.6rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
-            padding: 1.5rem;
-            background: rgba(255,255,255,0.05);
-            border-radius: 8px;
-            transition: background 0.3s ease;
-        }
-
-        .contact-item:hover {
-            background: rgba(255,255,255,0.1);
-        }
-
-        .contact-icon {
-            font-size: 2.4rem;
-            color: var(--accent-color);
-            flex-shrink: 0;
-        }
-        .contact-item p {
-            margin: 0;
-            line-height: 1.5;
-        }
-
-        .contact-form {
-            background: var(--light-color);
-            padding: 4rem;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-        }
-
-        .form-group {
-            margin-bottom: 2.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            font-size: 1.5rem;
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 1.5rem;
-            border: 2px solid #e5e7eb;
-            border-radius: 8px;
-            font-size: 1.6rem;
-            font-family: var(--font-body);
-            transition: all 0.3s ease;
-            background: #fafafa;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-            background: var(--light-color);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        .form-group textarea {
-            height: 120px;
-            resize: vertical;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: var(--accent-color);
-            color: var(--dark-color);
-            padding: 1.8rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.6rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: var(--font-heading);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-color-dark);
-            color: var(--light-color);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-        }
-
-        .submit-btn:disabled {
-            background: var(--secondary-color);
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .form-message {
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            font-weight: 600;
-            text-align: center;
-            display: none;
-        }
-
-        .form-message.success {
-            background: #d1fae5;
-            color: var(--success-color);
-            border: 1px solid var(--success-color);
-        }
-
-        .form-message.error {
-            background: #fee2e2;
-            color: var(--error-color);
-            border: 1px solid var(--error-color);
-        }
-
-        /* === 6. Footer === */
-        
-        .site-footer {
-            background: var(--dark-color);
-            color: var(--secondary-color);
-            padding: 5rem 0 3rem;
-            text-align: center;
-        }
-
-        .site-footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2.5rem;
-        }
-
-        .footer-logo {
-            font-family: var(--font-heading);
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--light-color);
-            margin-bottom: 1rem;
-        }
-        .footer-logo:hover {
-            color: var(--light-color);
-        }
-
-        .footer-links a {
-            color: var(--secondary-color);
-            margin: 0 1.5rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .copyright {
-            font-size: 1.4rem;
-            margin-top: 1rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            padding-top: 2rem;
-            width: 100%;
-        }
-
-        /* === 7. Loading Animation === */
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: var(--light-color);
-            animation: spin 1s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* 
-        ========================================
-        === 8. Responsive Media Queries ===
-        ========================================
-        */
-
-        /* For tablets and smaller devices (<= 992px) */
-        @media (max-width: 992px) {
-            .about-content, .contact-container {
-                gap: 4rem;
-            }
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* For tablets (<= 768px) */
-        @media (max-width: 768px) {
-            html { font-size: 60%; }
-            h2 { font-size: 3.2rem; }
-            section { padding: 6rem 0; }
-
-            .hero h1 { font-size: 4.5rem; }
-            .hero p { font-size: 1.8rem; }
-            .hero { height: 80vh; }
-            
-            /* -- Mobile Navigation -- */
-            .mobile-menu-toggle {
-                display: block;
-            }
-
-            .main-nav {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(5px);
-                box-shadow: 0 8px 16px var(--shadow-color);
-                padding: 2rem 0;
-                border-top: 1px solid #eee;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.4s ease-in-out;
-            }
-
-            .main-nav.active {
-                display: block;
-                max-height: 300px; /* Adjust as needed */
-            }
-
-            .main-nav ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 2.5rem;
-            }
-
-            /* -- Content Grids -- */
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                transform: none; /* Reset rotation on smaller screens */
-                order: -1; /* Move image above text */
-                margin-bottom: 3rem;
-            }
-
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
-            }
-            .form-row .form-group:last-child {
-                margin-top: 2.5rem;
-            }
-
-            .contact-form {
-                padding: 3rem;
-            }
-        }
-
-        /* For mobile phones (<= 480px) */
-        @media (max-width: 480px) {
-            html {
-                font-size: 58%;
-            }
-
-            section { padding: 5rem 0; }
-            
-            .logo {
-                gap: 1rem;
-            }
-            .logo span {
-                font-size: 1.8rem;
-            }
-            .logo img {
-                height: 45px;
-            }
-
-            .hero { padding: 0 2rem; height: 75vh;}
-            .hero h1 { font-size: 3.8rem; line-height: 1.3; }
-            .hero p { font-size: 1.7rem; }
-            
-            .stats-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-            }
-
-            .services-preview {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-links {
-                display: flex;
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            .footer-links a { margin: 0; }
-
-            .contact-form {
-                padding: 3rem 2rem;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinnacle Cricket Experiences - World-Class Cricket Event Management</title>
+  <meta name="description" content="The premier cricket event management powerhouse trusted by Fortune 500 companies, international cricket boards, and celebrity athletes to deliver extraordinary sporting experiences.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Cursor -->
+  <style>
+    * { cursor: none !important; }
+    #custom-cursor { 
+      position: fixed; 
+      width: 20px; 
+      height: 20px; 
+      background: #00ff88; 
+      border-radius: 50%; 
+      pointer-events: none; 
+      z-index: 10000; 
+      transition: transform 0.1s ease; 
+      mix-blend-mode: difference;
+    }
+    #custom-cursor.hover { transform: scale(2); background: #f4d03f; }
+  </style>
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div id="custom-cursor"></div>
+  
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="cricket-ball-loader">
+        <div class="ball">
+          <div class="seam"></div>
+          <div class="seam"></div>
+        </div>
+      </div>
+      <h1 class="loading-title">Milestone Sportz & Events</h1>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+    </div>
+  </div>
 
-    <!-- ================= HEADER ================= -->
-    <header class="site-header" id="header">
-        <div class="container">
-            <a href="#home" class="logo">
-                <img src="https://iili.io/F7z0YxI.md.png" alt="Milestone Logo">
-                <span>Milestone Sportz & Events</span>
+  <!-- Header -->
+  <header class="header glassmorphism">
+    <div class="container">
+      <div class="header-content">
+        <a href="#home" class="logo">
+          <img src="https://iili.io/F7z0YxI.md.png" class="nav-logo" alt="logo">
+          <h1>Milestone Sportz & Events</h1>
+        </a>
+        
+        <nav class="nav">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#portfolio" class="nav-link">Portfolio</a>
+          <a href="#team" class="nav-link">Team</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+        
+        <button class="mobile-menu-btn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-cricket-players-in-a-match-44529-large.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+    </div>
+    
+    <div class="particles-container">
+      <canvas id="particles-canvas"></canvas>
+    </div>
+    
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge floating">
+          
+        </div>
+        
+        <h1 class="hero-title">
+          <span class="title-line">Defining Sports,</span>
+          <span class="title-line gradient-text">Delivering Excellence.</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          A premier management company dedicated to creating, managing, and executing world-class sporting events and corporate experiences.
+        </p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" data-count="26">0</span>
+            <span class="stat-label">Event Delivered</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="7">0</span>
+            <span class="stat-label">Years Experience</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="1000">0</span>
+            <span class="stat-label">Participants Engaged</span>
+          </div>
+        </div>
+        
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary">
+            <span>Plan Your Event</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <button class="btn btn-secondary" id="play-showreel">
+            <i class="fas fa-play"></i>
+            <span>Watch Showreel</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">About Milestone Sportz</div>
+        <h2 class="section-title">Where Innovation Meets Cricket Excellence</h2>
+      </div>
+      
+      <div class="about-grid">
+        <div class="about-content">
+          <div class="about-text">
+            <p class="lead">Founded on a passion for sport and a commitment to perfection, Milestone brings together decades of industry experience.</p>
+            
+            <div class="company-info">
+              <div class="info-item">
+                <strong>Founded:</strong> 2024
+              </div>
+              <div class="info-item">
+                <strong>Headquarters:</strong> Jharkhand
+              </div>
+              <div class="info-item">
+                <strong>Team:</strong> 150+ Experts
+              </div>
+            </div>
+          </div>
+          
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>Our Story</h4>
+              <p>Creating unforgettable sporting experiences that inspire and leave a lasting impact.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-bolt"></i>
+              </div>
+              <h4>Our Vision</h4>
+              <p>Turning every idea into a celebrated success through passion and precision.</p>
+            </div>
+            
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <h4>Our Promise</h4>
+              <p>Delivering excellence with creativity, detail, and unwavering dedication.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-visual">
+          <div class="video-container">
+            <div class="video-placeholder">
+              <i class="fas fa-play-circle"></i>
+              <span>Experience Our Story</span>
+            </div>
+          </div>
+          
+          <div class="floating-stats">
+            <div class="floating-stat">
+              <span class="number">₹4Cr+</span>
+              <span class="label">Total Event Value</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Our Expertise</div>
+        <h2 class="section-title">Premium Cricket Solutions</h2>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card" data-service="tournament">
+          <div class="service-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <h3>Sports Event Management</h3>
+          <p>Complete tournament organization, from amateur leagues to professional championships, ensuring seamless execution.</p>
+          <ul class="service-features">
+            <li>Premium Hospitality</li>
+            <li>Global Reach</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+        
+        <div class="service-card" data-service="fan-experience">
+          <div class="service-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Immersive Fan Experiences</h3>
+          <p>Revolutionary fan engagement through AR/VR technologies, interactive zones, and personalized digital experiences.</p>
+          <ul class="service-features">
+            <li>AR/VR Integration</li>
+            <li>Interactive Zones</li>
+            <li>Mobile Apps</li>
+            <li>Social Media</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+        
+        <div class="service-card" data-service="corporate">
+          <div class="service-icon">
+            <i class="fas fa-briefcase"></i>
+          </div>
+          <h3>Corporate Events</h3>
+          <p>Elevate your brand with expertly crafted corporate sporting events, team building activities, and executive tournaments.</p>
+          <ul class="service-features">
+            <li>Team Building</li>
+            <li>Networking Events</li>
+            <li>Brand Activation</li>
+            <li>Executive Tournaments</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+        
+        <div class="service-card" data-service="venue">
+          <div class="service-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <h3>Venue & Infrastructure</h3>
+          <p>Complete venue transformation with world-class facilities, advanced technology integration, and premium hospitality.</p>
+          <ul class="service-features">
+            <li>Stadium Design</li>
+            <li>Tech Integration</li>
+            <li>Premium Hospitality</li>
+            <li>Logistics Management</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+        
+        <div class="service-card" data-service="media">
+          <div class="service-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <h3>Media & Broadcasting</h3>
+          <p>Professional media production with multi-camera setups, live streaming, and comprehensive digital distribution.</p>
+          <ul class="service-features">
+            <li>Live Streaming</li>
+            <li>Multi-Camera</li>
+            <li>Social Media</li>
+            <li>Digital Distribution</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+        
+        <div class="service-card" data-service="analytics">
+          <div class="service-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Analytics & Intelligence</h3>
+          <p>Advanced cricket analytics, real-time performance tracking, fan behavior insights, and comprehensive reporting.</p>
+          <ul class="service-features">
+            <li>Performance Analytics</li>
+            <li>Fan Insights</li>
+            <li>Real-time Data</li>
+            <li>Intelligence Reports</li>
+          </ul>
+          <div class="service-hover-effect"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="portfolio section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Our Work</div>
+        <h2 class="section-title">Signature Events & Achievements</h2>
+      </div>
+      
+      <div class="portfolio-grid">
+        <div class="portfolio-item" data-category="corporate">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=600&h=400&fit=crop" alt="IPL Corporate Championship" loading="lazy">
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3>IPL Corporate Championship 2024</h3>
+                <p>32-team corporate cricket championship featuring Fortune 500 companies</p>
+                <div class="portfolio-stats">
+                  <span>32 Teams</span>
+                  <span>₹25Cr Value</span>
+                  <span>50k+ Attendance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="celebrity">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop" alt="Mumbai Legends Celebrity Cup" loading="lazy">
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3>Mumbai Legends Celebrity Cup</h3>
+                <p>Star-studded cricket gala raising ₹10 Crores for charity with global broadcast</p>
+                <div class="portfolio-stats">
+                  <span>20 Celebrities</span>
+                  <span>₹10Cr Raised</span>
+                  <span>50M+ Viewers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="industry">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="Tech Titans Cricket League" loading="lazy">
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3>Tech Titans Cricket League</h3>
+                <p>Premier tech industry cricket league featuring startup unicorns and tech giants</p>
+                <div class="portfolio-stats">
+                  <span>24 Companies</span>
+                  <span>156 Matches</span>
+                  <span>₹2Cr Prize</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-item" data-category="educational">
+          <div class="portfolio-image">
+            <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop" alt="International Schools Championship" loading="lazy">
+            <div class="portfolio-overlay">
+              <div class="portfolio-content">
+                <h3>International Schools Championship</h3>
+                <p>Prestigious inter-school cricket championship spanning 8 countries</p>
+                <div class="portfolio-stats">
+                  <span>200 Schools</span>
+                  <span>8 Countries</span>
+                  <span>5000+ Students</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="team section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Leadership</div>
+        <h2 class="section-title">Meet Our Visionary Team</h2>
+      </div>
+      
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" alt="Arjun Malhotra" loading="lazy">
+            <div class="member-overlay">
+              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Arjun Malhotra</h3>
+            <p class="member-role">Founder & Chief Visionary</p>
+            <p class="member-bio">Former Indian team manager with 20+ years in international cricket and Fortune 500 sports marketing experience.</p>
+            <div class="member-expertise">
+              <span>Strategic Leadership</span>
+              <span>International Cricket</span>
+              <span>Corporate Partnerships</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b29c?w=400&h=400&fit=crop&crop=face" alt="Kavya Reddy" loading="lazy">
+            <div class="member-overlay">
+              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Kavya Reddy</h3>
+            <p class="member-role">Chief Operating Officer</p>
+            <p class="member-bio">Operations mastermind specializing in large-scale international sporting events and premium hospitality management.</p>
+            <div class="member-expertise">
+              <span>Event Operations</span>
+              <span>Premium Hospitality</span>
+              <span>Global Logistics</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face" alt="Rohit Sharma" loading="lazy">
+            <div class="member-overlay">
+              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Rohit Sharma</h3>
+            <p class="member-role">Chief Technology Officer</p>
+            <p class="member-bio">Technology innovator pioneering AR/VR in sports, advanced analytics, and next-generation fan engagement platforms.</p>
+            <div class="member-expertise">
+              <span>AR/VR Technology</span>
+              <span>Sports Analytics</span>
+              <span>Digital Innovation</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <div class="member-image">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop&crop=face" alt="Priya Patel" loading="lazy">
+            <div class="member-overlay">
+              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="member-info">
+            <h3>Priya Patel</h3>
+            <p class="member-role">Head of Creative Excellence</p>
+            <p class="member-bio">Creative genius behind award-winning cricket experiences, brand activations, and immersive fan engagement strategies.</p>
+            <div class="member-expertise">
+              <span>Creative Strategy</span>
+              <span>Brand Activation</span>
+              <span>Fan Engagement</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients Section -->
+  <section class="clients section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Trusted Partners</div>
+        <h2 class="section-title">Fortune 500 Companies Trust Us</h2>
+      </div>
+      
+      <div class="clients-carousel">
+        <div class="client-track">
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=RELIANCE" alt="Reliance Industries" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=TATA" alt="Tata Group" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=INFOSYS" alt="Infosys Limited" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=ICICI" alt="ICICI Bank" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=ASIAN+PAINTS" alt="Asian Paints" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=MAHINDRA" alt="Mahindra Group" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=WIPRO" alt="Wipro Limited" loading="lazy">
+          </div>
+          <div class="client-logo">
+            <img src="https://via.placeholder.com/160x80/ffffff/1a5d1a?text=BAJAJ" alt="Bajaj Group" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Testimonials</div>
+        <h2 class="section-title">What Leaders Say About Us</h2>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote>
+              "Pinnacle Cricket Experiences delivered an extraordinary corporate tournament that exceeded all our expectations. Their attention to detail and premium execution is unmatched."
+            </blockquote>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?w=150&h=150&fit=crop&crop=face" alt="Mukesh Ambani" loading="lazy">
+            <div class="author-info">
+              <h4>Mukesh Ambani</h4>
+              <p>Chairman, Reliance Industries</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <blockquote>
+              "Working with Pinnacle has been incredible. They understand cricket at the highest level and create experiences that truly honor the game."
+            </blockquote>
+          </div>
+          <div class="testimonial-author">
+            <img src="https://images.unsplash.com/photo-1549068106-b024baf5062d?w=150&h=150&fit=crop&crop=face" alt="Virat Kohli" loading="lazy">
+            <div class="author-info">
+              <h4>Virat Kohli</h4>
+              <p>Cricket Legend & Brand Ambassador</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">Get in Touch</div>
+        <h2 class="section-title">Ready to Create Cricket History?</h2>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-form-wrapper">
+          <form class="contact-form" id="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+                <span class="form-line"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <span class="form-line"></span>
+              </div>
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label for="company">Company</label>
+                <input type="text" id="company" name="company">
+                <span class="form-line"></span>
+              </div>
+              
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone">
+                <span class="form-line"></span>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="event-type">Event Type</label>
+              <select id="event-type" name="event-type">
+                <option value="">Select Event Type</option>
+                <option value="corporate-tournament">Corporate Tournament</option>
+                <option value="celebrity-match">Celebrity Match</option>
+                <option value="fan-engagement">Fan Engagement Event</option>
+                <option value="venue-management">Venue Management</option>
+                <option value="other">Other</option>
+              </select>
+              <span class="form-line"></span>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+              <span class="form-line"></span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit-btn">
+              <span>Send Inquiry</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h4>Our Locations</h4>
+            <p>Mumbai | Delhi | Bangalore<br>Serving clients across India and globally</p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h4>Phone</h4>
+            <p>+91 98765 43210<br>+91 87654 32109</p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <h4>Email</h4>
+            <p>info@pinnaclecricket.com<br>partnerships@pinnaclecricket.com</p>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h4>Response Time</h4>
+            <p>Within 24 hours<br>Priority support for enterprises</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <span class="logo-icon">🏏</span>
+            <span class="logo-text">Pinnacle Cricket Experiences</span>
+          </div>
+          <p>Crafting World-Class Cricket Experiences That Define Excellence</p>
+          <div class="social-links">
+            <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
             </a>
-
-            <nav class="main-nav" id="mainNav">
-                <ul>
-                    <li><a href="#home" class="nav-link active">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Open menu">☰</button>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+              <i class="fab fa-youtube"></i>
+            </a>
+          </div>
         </div>
-    </header>
-
-    <main>
-        <!-- ================= HERO SECTION ================= -->
-        <section class="hero" id="home">
-            <div class="slider">
-                <div class="slide active" style="background-image: url('https://www.foretitansevents.com/home/images/Teams3.jpeg');"></div>
-                <div class="slide" style="background-image: url('https://www.foretitansevents.com/home/images/g4-min.jpg');"></div>
-                <div class="slide" style="background-image: url('https://www.foretitansevents.com/home/images/gal/4.jpeg');"></div>
-            </div>
-            <div class="overlay"></div>
-            <div class="hero-content">
-                <h1>Defining Sports, Delivering Excellence.</h1>
-                <p>A premier management company dedicated to creating, managing, and executing world-class sporting events and corporate experiences.</p>
-                <a href="#contact" class="cta-button">Plan Your Event</a>
-            </div>
-        </section>
-
-        <!-- ================= ABOUT SECTION ================= -->
-        <section id="about">
-            <div class="container">
-                <h2>Who We Are</h2>
-                <p class="section-subtitle">
-                    Founded on a passion for sport and a commitment to perfection, Milestone brings together decades of industry experience.
-                </p>
-
-                <div class="about-content">
-                    <div class="about-image">
-                        <img src="https://imageio.forbes.com/specials-images/imageserve/66bf43df727b75128d6f97b1/Huge-multi-sports-collage-taekwondo--tennis--soccer--basketball--etc/960x0.jpg?format=jpg&width=960" alt="Collage of various sports events">
-                    </div>
-                    <div class="about-text">
-                        <h3>Our Story & Vision</h3>
-                        <p>Since our founding, Milestone Sportz & Events has been at the forefront of creating extraordinary sporting experiences that captivate audiences and inspire participants. We believe every event is a landmark opportunity to create lasting memories.</p>
-                        <p>Our mission is to be the trusted partner that transforms your vision into a celebrated success. From corporate gatherings to large-scale international sporting events, we bring the same level of dedication, creativity, and attention to detail to every project.</p>
-                    </div>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <span class="stat-number">26+</span>
-                        <span class="stat-label">Events Delivered</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">7+</span>
-                        <span class="stat-label">Years Experience</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">1000+</span>
-                        <span class="stat-label">Participants Engaged</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Sports Categories</span>
-                    </div>
-                </div>
-
-                <div class="services-preview">
-                    <div class="service-card">
-                        <span class="service-icon">🏆</span>
-                        <h4>Sports Event Management</h4>
-                        <p>Complete tournament organization, from amateur leagues to professional championships, ensuring seamless execution.</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">🎯</span>
-                        <h4>Corporate Events</h4>
-                        <p>Elevate your brand with expertly crafted corporate sporting events, team building activities, and executive tournaments.</p>
-                    </div>
-                    <div class="service-card">
-                        <span class="service-icon">📺</span>
-                        <h4>Media & Production</h4>
-                        <p>Full-service media including live streaming, broadcast management, and content creation for maximum event impact.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ================= CONTACT SECTION ================= -->
-        <section id="contact">
-            <div class="container">
-                <h2>Get In Touch</h2>
-                <p class="section-subtitle">
-                    Ready to create your next milestone event? Let's discuss how we can bring your vision to life.
-                </p>
-
-                <div class="contact-container">
-                    <div class="contact-info">
-                        <h3>Contact Information</h3>
-                        
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <h4>Head Office</h4>
-                                <p>Tomar Colony, Burari<br>Delhi, India 110084</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <h4>Call Us</h4>
-                                <p>+91 82874 14878, +91 91285 80613</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div>
-                                <h4>Email Us</h4>
-                                <p>milestone_sports@gmail.com</p>
-                            </div>
-                        </div>
-
-                        <div class="contact-item">
-                            <span class="contact-icon">🕒</span>
-                            <div>
-                                <h4>Business Hours</h4>
-                                <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <form class="contact-form" id="contactForm" novalidate>
-                        <div class="form-message" id="formMessage"></div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="firstName">First Name *</label>
-                                <input type="text" id="firstName" name="firstName" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="lastName">Last Name *</label>
-                                <input type="text" id="lastName" name="lastName" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="eventType">Event Type *</label>
-                            <select id="eventType" name="eventType" required>
-                                <option value="">Select an event type</option>
-                                <option value="corporate">Corporate Event</option>
-                                <option value="sports-tournament">Sports Tournament</option>
-                                <option value="conference">Conference/Seminar</option>
-                                <option value="team-building">Team Building</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="message">Tell us about your event *</label>
-                            <textarea id="message" name="message" placeholder="Please describe your event requirements..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="submit-btn" id="submitBtn">
-                            <span class="btn-text">Send Message</span>
-                            <span class="loading" style="display: none;"></span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- ================= FOOTER ================= -->
-    <footer class="site-footer">
-        <div class="container">
-            <a href="#home" class="footer-logo">Milestone Sportz & Events LLP</a>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <p class="copyright">
-                © 2024 Milestone Sportz & Events. All Rights Reserved.
-            </p>
+        
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#services">Tournament Management</a></li>
+              <li><a href="#services">Fan Experiences</a></li>
+              <li><a href="#services">Corporate Solutions</a></li>
+              <li><a href="#services">Venue & Infrastructure</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#portfolio">Portfolio</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          
+          <div class="footer-column">
+            <h4>Industries</h4>
+            <ul>
+              <li><a href="#">Corporate Events</a></li>
+              <li><a href="#">Educational Institutions</a></li>
+              <li><a href="#">Sports Organizations</a></li>
+              <li><a href="#">Entertainment Industry</a></li>
+            </ul>
+          </div>
         </div>
-    </footer>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p>&copy; 2025 Pinnacle Cricket Experiences. All rights reserved.</p>
+          <div class="footer-bottom-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        
-        // --- HERO SLIDER ---
-        const slides = document.querySelectorAll(".slide");
-        if (slides.length > 0) {
-            let current = 0;
-            slides[current].classList.add("active");
-            
-            setInterval(() => {
-                slides[current].classList.remove("active");
-                current = (current + 1) % slides.length;
-                slides[current].classList.add("active");
-            }, 5000); // Slide interval: 5 seconds
-        }
+  <!-- Video Modal -->
+  <div class="video-modal" id="video-modal">
+    <div class="video-modal-content">
+      <button class="video-modal-close" id="video-modal-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="video-container">
+        <iframe id="modal-video" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
 
-        // --- HEADER SCROLL EFFECT ---
-        const header = document.getElementById('header');
-        if (header) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-        }
-        
-        // --- MOBILE MENU TOGGLE ---
-        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-        const mainNav = document.getElementById('mainNav');
-        if (mobileMenuToggle && mainNav) {
-            mobileMenuToggle.addEventListener('click', () => {
-                mainNav.classList.toggle('active');
-                const isExpanded = mainNav.classList.contains('active');
-                mobileMenuToggle.setAttribute('aria-expanded', isExpanded);
-                mobileMenuToggle.innerHTML = isExpanded ? '✕' : '☰'; // Change icon
-            });
-        }
-        
-        // --- CLOSE MOBILE MENU ON LINK CLICK ---
-        const navLinks = document.querySelectorAll('.main-nav a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNav.classList.contains('active')) {
-                    mainNav.classList.remove('active');
-                    mobileMenuToggle.innerHTML = '☰';
-                }
-            });
-        });
-
-        // --- ACTIVE NAV LINK ON SCROLL ---
-        const sections = document.querySelectorAll('section[id]');
-        function updateActiveNav() {
-            let currentSection = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (window.pageYOffset >= sectionTop - (header.offsetHeight + 50)) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-        window.addEventListener('scroll', updateActiveNav);
-        updateActiveNav(); // Initial check
-
-        // --- CONTACT FORM HANDLING (SIMULATED) ---
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                // Simple validation
-                let isValid = true;
-                const requiredFields = contactForm.querySelectorAll('[required]');
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = 'var(--error-color)';
-                    } else {
-                        field.style.borderColor = ''; // Reset border
-                    }
-                });
-
-                if (!isValid) {
-                    showMessage('Please fill out all required fields.', 'error');
-                    return;
-                }
-
-                const submitBtn = document.getElementById('submitBtn');
-                const btnText = submitBtn.querySelector('.btn-text');
-                const loadingSpinner = submitBtn.querySelector('.loading');
-
-                // Show loading state
-                submitBtn.disabled = true;
-                btnText.style.display = 'none';
-                loadingSpinner.style.display = 'inline-block';
-
-                // Simulate network request
-                setTimeout(() => {
-                    // Hide loading state
-                    submitBtn.disabled = false;
-                    btnText.style.display = 'inline-block';
-                    loadingSpinner.style.display = 'none';
-
-                    // Show success message and reset form
-                    showMessage('Thank you! Your message has been sent.', 'success');
-                    contactForm.reset();
-                }, 2000);
-            });
-        }
-
-        function showMessage(message, type) {
-            const formMessage = document.getElementById('formMessage');
-            formMessage.textContent = message;
-            formMessage.className = `form-message ${type}`;
-            formMessage.style.display = 'block';
-
-            // Hide the message after 5 seconds
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        }
-
-    });
-    </script>
-
+  <script src="app.js"></script>
 </body>
 </html>
