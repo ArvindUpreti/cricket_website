@@ -620,6 +620,7 @@ select.form-control {
   .container {
     max-width: var(--container-sm);
   }
+  
 }
 @media (min-width: 768px) {
   .container {
@@ -947,13 +948,13 @@ body {
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  text-decoration: none;
-  color: var(--white);
-  font-weight: 700;
-  font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.5rem;
 }
 
 .logo-icon {
@@ -966,6 +967,8 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+
 }
 
 .nav {
@@ -1066,7 +1069,6 @@ body {
 
 .hero-content {
   text-align: center;
-  max-width: 1000px;
   animation: heroFadeIn 1.5s ease-out;
 }
 
@@ -2256,9 +2258,28 @@ body {
 
 /* nav logo */
 .nav-logo{
-  height: 4vw;
+  height: 5vw;
+}
+.nav-logo .container .header-content .logo h1{
+  font-family: var(--font-display);
 }
 .container .header-content .logo h1{
   font-size: 1.5vw;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-display);
+}
+
+
+/* footer logo */
+.footer-logo-text{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo{
+  height: 5vw;
+}
+
+.footer .footer-logo-text .logo-text{
+  font-weight: 900;
+  font-size: 1.3rem;
 }
