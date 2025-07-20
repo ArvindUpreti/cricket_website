@@ -1,6 +1,6 @@
-// ================= Pinnacle Cricket Experiences - Premium JavaScript =================
+// ================= Milestone Sportz Experiences - Premium JavaScript =================
 
-class PinnacleWebsite {
+class MilestoneWebsite {
   constructor() {
     this.isLoaded = false;
     this.customCursor = null;
@@ -26,7 +26,7 @@ class PinnacleWebsite {
     this.setupSmoothScrolling();
     this.bindEvents();
     
-    console.log('🏏 Pinnacle Cricket Experiences - Premium features loaded');
+    console.log('🏏 Milestone Sportz Experiences - Premium features loaded');
   }
 
   // ================= Loading Screen =================
@@ -765,7 +765,7 @@ class PinnacleWebsite {
 
 // ================= Initialize Website =================
 document.addEventListener('DOMContentLoaded', () => {
-  new PinnacleWebsite();
+  new MilestoneWebsite();
 });
 
 // ================= Additional Utilities =================
