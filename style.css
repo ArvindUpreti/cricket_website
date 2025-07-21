@@ -1085,18 +1085,6 @@ body {
   text-align: center;
   animation: heroFadeIn 1.5s ease-out;
 }
-@media (max-width: 768px) {
-  .hero_content_img {
-    background-position: center 15%; /* tweak between 10–20% */
-  }
-}
-.hero_content_img::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 0;
-}
 
 
 .hero-badge {

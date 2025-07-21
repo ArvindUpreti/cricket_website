@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Milestone Sportz & Events - World-Class Sports Event Management
+    </title>
+    <meta
+      name="description"
+      content="Milestone Sportz & Event is a leader in cricket event management, known for executing large-scale tournaments and sports experiences with precision and global reach."
+    />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Custom Cursor -->
+
+    <style>
+      * {
+        cursor: none !important;
+      }
+      #custom-cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: #00ff88;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;
+        transition: transform 0.1s ease;
+        mix-blend-mode: difference;
+      }
+      #custom-cursor.hover {
+        transform: scale(2);
+        background: #f4d03f;
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div id="custom-cursor"></div>
+        <!-- Header -->
+    <header class="header glassmorphism">
+      <div class="container">
+        <div class="header-content">
+          <a href="#home" class="logo">
+            <img
+              src="https://iili.io/F7z0YxI.md.png"
+              class="nav-logo"
+              alt="logo"
+            />
+            <h1>Milestone Sportz & Events</h1>
+          </a>
+
+          <nav class="nav">
+            <a href="./index.html#home" class="nav-link active">Home</a>
+            <a href="./index.html#about" class="nav-link">About</a>
+            <a href="./index.html#services" class="nav-link">Services</a>
+            <a href="#portfolio#portfolio" class="nav-link">Portfolio</a>
+            <a href="./index.html#team" class="nav-link">Team</a>
+            <a href="./Gallary.html#gallary" class="nav-link">Gallary</a>
+            <a href="./index.html#contact" class="nav-link">Contact</a>
+          </nav>
+
+          <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+        <!-- Gallary Section -->
+
+    <section id="gallary" class="portfolio section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">Our Work</div>
+          <h2 class="section-title">Signature Events & Achievements</h2>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item" data-category="corporate">
+            <div class="portfolio-image">
+              <img
+                src="./assets/Gallary/Gallary-1.jpg"
+                alt="IPL Corporate Championship"
+                loading="lazy"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h3>IPL Corporate Championship 2024</h3>
+                  <p>
+                    32-team corporate cricket championship featuring Fortune 500
+                    companies
+                  </p>
+                  <div class="portfolio-stats">
+                    <span>32 Teams</span>
+                    <span>₹25Cr Value</span>
+                    <span>50k+ Attendance</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="celebrity">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop"
+                alt="Mumbai Legends Celebrity Cup"
+                loading="lazy"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h3>Mumbai Legends Celebrity Cup</h3>
+                  <p>
+                    Star-studded cricket gala raising ₹10 Crores for charity
+                    with global broadcast
+                  </p>
+                  <div class="portfolio-stats">
+                    <span>20 Celebrities</span>
+                    <span>₹10Cr Raised</span>
+                    <span>50M+ Viewers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="industry">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop"
+                alt="Tech Titans Cricket League"
+                loading="lazy"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h3>Tech Titans Cricket League</h3>
+                  <p>
+                    Premier tech industry cricket league featuring startup
+                    unicorns and tech giants
+                  </p>
+                  <div class="portfolio-stats">
+                    <span>24 Companies</span>
+                    <span>156 Matches</span>
+                    <span>₹2Cr Prize</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="portfolio-item" data-category="educational">
+            <div class="portfolio-image">
+              <img
+                src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=400&fit=crop"
+                alt="International Schools Championship"
+                loading="lazy"
+              />
+              <div class="portfolio-overlay">
+                <div class="portfolio-content">
+                  <h3>International Schools Championship</h3>
+                  <p>
+                    Prestigious inter-school cricket championship spanning 8
+                    countries
+                  </p>
+                  <div class="portfolio-stats">
+                    <span>200 Schools</span>
+                    <span>8 Countries</span>
+                    <span>5000+ Students</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+  
+        </div>
+      </div>
+    </section>
+        <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <div class="footer-logo-text">
+              <img
+                src="https://iili.io/F7z0YxI.md.png"
+                class="footer-logo"
+                alt=""
+              />
+              <span class="logo-text"> Milestone Sportz & Events</span>
+            </div>
+            <p>
+              Crafting World-Class Sports Experiences That Define Excellence
+            </p>
+            <div class="social-links">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook"></i>
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin"></i>
+              </a>
+              <a
+                href="https://youtube.com"
+                target="_blank"
+                aria-label="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4>Services</h4>
+              <ul>
+                <li><a href="#services">Tournament Management</a></li>
+                <li><a href="#services">Fan Experiences</a></li>
+                <li><a href="#services">Corporate Solutions</a></li>
+                <li><a href="#services">Venue & Infrastructure</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-column">
+              <h4>Industries</h4>
+              <ul>
+                <li><a href="#">Corporate Events</a></li>
+                <li><a href="#">Educational Institutions</a></li>
+                <li><a href="#">Sports Organizations</a></li>
+                <li><a href="#">Entertainment Industry</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="footer-bottom-content">
+            <p>&copy; 2025 Milestone Sportz & Events. All rights reserved.</p>
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+<script src="./app.js"></script>
+<script src="./index.js"></script>
+</html>
