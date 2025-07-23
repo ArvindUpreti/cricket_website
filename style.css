@@ -1639,6 +1639,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 18px;
 }
 
 .team-member {
@@ -1884,6 +1885,10 @@ body {
   color: var(--white);
   font-family: inherit;
   transition: var(--transition-smooth);
+}
+
+.form-group option{
+  color: black !important;
 }
 
 .form-group input:focus,
@@ -2327,13 +2332,13 @@ body {
 
 /* nav logo */
 .nav-logo{
-  height: 5vw;
+  height: 80px;
 }
 .nav-logo .container .header-content .logo h1{
   font-family: var(--font-display);
 }
 .container .header-content .logo h1{
-  font-size: 1.5vw;
+  font-size: 1.3rem;
     font-family: var(--font-display);
 }
 
@@ -2367,4 +2372,21 @@ body {
   height: 100%;
   background: url("./assets/sports-players-bw.png") center center / cover no-repeat;
   z-index: -2;
+}
+
+
+@media(max-width:367px){
+  .nav-logo{
+  height: 60px;
+}
+  .container .header-content .logo h1{
+  font-size: 0.8rem;
+    font-family: var(--font-display);
+}
+}
+
+@media(max-width:767px){
+  .custom-cursor{
+    display: none;
+  }
 }
