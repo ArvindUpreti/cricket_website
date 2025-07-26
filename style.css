@@ -1400,7 +1400,7 @@ body {
   position: relative;
   border-radius: 20px;
   overflow: hidden;
-  aspect-ratio: 16/9;
+  aspect-ratio: 20/16.5;
 }
 
 .video-placeholder {
@@ -1635,14 +1635,12 @@ body {
   color: var(--white);
 }
 
-
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-}
-.team-grid {
   margin-bottom: 2rem;
+
 }
 
 .team-member {
@@ -2364,6 +2362,7 @@ body {
 .hero-image{
   height: 100%;
   width:  100%;
+  object-fit: cover;
 }
 
 /* hero background */
